@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice to Text Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>🎙️ Voice to Text Converter</h1>
+    <p class="description">
+        Click the microphone button and start speaking. Your speech will be converted into text in real-time. <br>
+        This tool works only in browsers that support speech recognition, like Google Chrome.
+    </p>
+
+    <label for="language">Select Language:</label>
+    <select id="language">
+        <option value="en-US" selected>English 🇺🇸</option>
+        <option value="pt-BR">Português 🇧🇷</option>
+        <option value="es-ES">Español 🇪🇸</option>
+        <option value="id-ID">Bahasa Indonesia 🇮🇩</option>
+    </select>
+
+    <br><br>
+
+    <h2>📁 Upload Audio File</h2>
+    <p class="description">
+        Upload an audio file (.mp3, .wav, etc.) and get the transcription below.
+    </p>
+    <input type="file" id="audioFile" accept="audio/*,audio/ogg">
+    <button id="uploadBtn">Upload and Transcribe</button>
+    <pre id="fileTranscription"></pre>
+
+
+
+    <textarea id="text" placeholder="Speak something and see the text here..."></textarea><br>
+    <button id="btn">🎤 Start Listening</button>
+
+    <script src="mic.js"></script>
+    <script src="audio-upload.js"></script>
+
+</body>
+
+</html>

@@ -1,5 +1,27 @@
 {
   "dependencies": {
-    "@vercel/analytics": "^1.5.0"
-  }
+    "@vercel/analytics": "^1.5.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "multer": "^2.0.0",
+    "openai": "^4.103.0"
+  },
+  "name": "voice-to-text",
+  "description": "**My Audio to Text** é uma ferramenta web gratuita que converte voz em texto em tempo real diretamente no navegador, utilizando a API Web Speech (SpeechRecognition). O projeto é uma Progressive Web App (PWA), com suporte offline e instalação em dispositivos.",
+  "version": "1.0.0",
+  "main": "mic.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matteusmoreno/voice-to-text.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matteusmoreno/voice-to-text/issues"
+  },
+  "homepage": "https://github.com/matteusmoreno/voice-to-text#readme"
 }

@@ -20,8 +20,8 @@ uploadBtn.addEventListener('click', async () => {
     uploadBtn.textContent = 'Uploading...';
 
     try {
-        //const response = await fetch('http://ec2-18-188-122-181.us-east-2.compute.amazonaws.com:8080/speech/recognize', {
-        const response = await fetch('http://localhost:8080/speech/recognize', {
+        const response = await fetch('http://ec2-13-58-61-104.us-east-2.compute.amazonaws.com:8080/speech/recognize', {
+        //const response = await fetch('http://localhost:8080/speech/recognize', {
             method: 'POST',
             body: formData
         });
@@ -31,7 +31,7 @@ uploadBtn.addEventListener('click', async () => {
         }
 
         const data = await response.json();
-        resultText.value = data.transcript || 'No transcription returned.';
+        resultText.value = data.text || 'No transcription returned.';
     } catch (error) {
         console.error(error);
         resultText.value = 'Error transcribing the audio.';

@@ -50,8 +50,8 @@
 
     <nav>
         <ul>
-            <li><a href="/index.html">🎤 Mic</a></li>
-            <li><a href="upload.html" class="active">📁 Upload File</a></li>
+            <li><a id="voiceBtn" href="/index.html">🎤 Voice</a></li>
+            <li><a id="uploadBtn" href="/upload.html">📁 Upload File</a></li>
         </ul>
     </nav>
 
@@ -89,9 +89,10 @@
     <br><br>
 
     <textarea id="text" aria-label="Transcribed text area"
-        placeholder="Speak something and see the text here..."></textarea><br>
+        placeholder="Speak something and see the text here..." readonly></textarea><br>
 
     <button id="btn" aria-label="Start or stop listening">🎤 Start Listening</button>
+    <button id="clearBtn" aria-label="Clear text area">🧹 Clear Text</button>
 
     <footer>
         <p>&copy; 2025 Voice to Text Online | Developed by Matteus Moreno</p>

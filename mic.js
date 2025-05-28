@@ -1,6 +1,7 @@
 const btn = document.getElementById('btn');
 const textarea = document.getElementById('text');
 const languageSelect = document.getElementById('language');
+const clearBtn = document.getElementById('clearBtn');
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -27,6 +28,10 @@ const placeholders = {
     "th-TH": "พูดอะไรสักอย่างแล้วดูข้อความที่นี่...",
     "vi-VN": "Nói điều gì đó và xem văn bản ở đây..."
 };
+
+clearBtn.addEventListener('click', () => {
+    textarea.value = '';
+  });
 
 function updatePlaceholder() {
     const selectedLang = languageSelect.value;

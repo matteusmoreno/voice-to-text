@@ -45,8 +45,8 @@
 
     <nav>
         <ul>
-            <li><a href="/index.html">🎤 Mic</a></li>
-            <li><a href="/upload.html" class="active">📁 Upload File</a></li>
+            <li><a id="voiceBtn" href="/index.html">🎤 Voice</a></li>
+            <li><a id="uploadBtn" href="/upload.html">📁 Upload File</a></li>
         </ul>
     </nav>
 
@@ -54,18 +54,25 @@
         <h1>📁 Audio File Transcription</h1>
 
         <p class="description">
-            Select an audio file (MP3, WAV, OGG, or similar) from your device by clicking the “Choose File” button
+            Select an audio file (MP3, WAV, OGG or similar) from your device by clicking the “Choose File” button
             below.<br />
             After selecting the file, click “Upload and Transcribe” to start the transcription.<br />
             The transcribed text will appear in the box below once the process is complete.<br />
             Supported browsers include Google Chrome and others that support audio file processing.
         </p>
 
+        <label for="language">Select Language:</label>
+        <select id="language" aria-label="Select language for transcription">
+            <option value="en" selected>English 🇺🇸</option>
+            <option value="pt-br">Português 🇧🇷</option>
+            <!-- Adicione outros idiomas aqui -->
+        </select>
+
         <form id="uploadForm" class="upload-container">
             <input type="file" id="audioFile" accept="audio/*" aria-label="Upload audio file" />
-            <button type="submit">Upload and Transcribe</button>
-          </form>
-          
+            <button id="upload-btn" type="button">Upload and Transcribe</button>
+        </form>
+
 
         <textarea id="text" rows="10" cols="80" placeholder="The transcript will appear here..." readonly
             aria-live="polite"></textarea>

@@ -1,35 +1,42 @@
-const uploadForm = document.getElementById('uploadForm');
-const audioFileInput = document.getElementById('audioFile');
-const outputText = document.getElementById('text');
+const fileInput = document.getElementById('audioFile');
+const uploadBtn = document.getElementById('upload-btn');
+const resultText = document.getElementById('text');
+const languageSelect = document.getElementById('language');
 
-uploadForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+uploadBtn.addEventListener('click', async () => {
+    const file = fileInput.files[0];
+    const language = languageSelect.value;
 
-    const file = audioFileInput.files[0];
     if (!file) {
-        alert('Por favor, selecione um arquivo de áudio.');
+        alert('Please select an audio file to upload.');
         return;
     }
 
     const formData = new FormData();
     formData.append('file', file);
+    formData.append('language', language);
+
+    uploadBtn.disabled = true;
+    uploadBtn.textContent = 'Uploading...';
 
     try {
-        outputText.value = "⏳ Processing, wait a moment...";
-
+        //const response = await fetch('http://ec2-18-188-122-181.us-east-2.compute.amazonaws.com:8080/speech/recognize', {
         const response = await fetch('http://localhost:8080/speech/recognize', {
             method: 'POST',
             body: formData
         });
 
         if (!response.ok) {
-            throw new Error('Erro na transcrição.');
+            throw new Error('Failed to transcribe the audio.');
         }
 
         const data = await response.json();
-        outputText.value = data.text || '❌ Nenhum texto encontrado.';
+        resultText.value = data.transcript || 'No transcription returned.';
     } catch (error) {
-        console.error('Erro:', error);
-        outputText.value = '❌ Ocorreu um erro durante a transcrição.';
+        console.error(error);
+        resultText.value = 'Error transcribing the audio.';
+    } finally {
+        uploadBtn.disabled = false;
+        uploadBtn.textContent = 'Upload and Transcribe';
     }
 });

@@ -20,7 +20,7 @@ uploadBtn.addEventListener('click', async () => {
     uploadBtn.textContent = 'Uploading...';
 
     try {
-        const response = await fetch('http://ec2-18-221-142-45.us-east-2.compute.amazonaws.com:8080/speech/transcribe', {
+        const response = await fetch('https://api.myaudiototext.com/speech/transcribe', {
         //const response = await fetch('http://localhost:8080/speech/transcribe', {
             method: 'POST',
             body: formData

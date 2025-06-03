@@ -4,7 +4,7 @@ body {
     background-color: #121212;
     color: #e0e0e0;
     text-align: center;
-    padding: 40px;
+    padding: 60px 20px;
     margin: 0;
 }
 
@@ -19,6 +19,7 @@ h1 {
     max-width: 900px;
     margin: 0 auto 20px;
     line-height: 1.6;
+    padding: 0 10px;
 }
 
 label {
@@ -33,6 +34,7 @@ select {
     background-color: #1e1e1e;
     color: white;
     font-size: 16px;
+    min-width: 150px;
 }
 
 select:focus {
@@ -44,14 +46,14 @@ select:focus {
     max-width: 600px;
     height: 200px;
     padding: 20px;
-    margin: 20px auto;
+    margin: 20px auto 0 auto;
     border: 2px solid #333;
     border-radius: 10px;
     background-color: #1e1e1e;
     color: white;
     resize: none;
     font-size: 16px;
-    margin-top: 0px;
+    box-sizing: border-box;
 }
 
 #btn {
@@ -68,6 +70,8 @@ button {
     color: white;
     margin-top: 2px;
     transition: background-color 0.3s;
+    min-width: 150px;
+    box-sizing: border-box;
 }
 
 button:hover {
@@ -78,12 +82,13 @@ footer {
     margin-top: 40px;
     color: #888;
     font-size: 14px;
+    padding: 0 10px;
 }
 
 footer a {
     color: inherit;
     text-decoration: none; 
-  }
+}
 
 /* --------- NAVBAR --------- */
 nav {
@@ -104,6 +109,7 @@ nav ul {
     display: flex;
     justify-content: center;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
 nav ul li {
@@ -117,6 +123,9 @@ nav ul li a {
     padding: 8px 16px;
     border-radius: 6px;
     transition: background-color 0.3s;
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
 }
 
 nav ul li a:hover,
@@ -132,6 +141,7 @@ nav ul li a.active {
     border: 2px solid #333;
     max-width: 600px;
     margin: 40px auto;
+    box-sizing: border-box;
 }
 
 .upload-container input[type="file"] {
@@ -141,6 +151,8 @@ nav ul li a.active {
     border-radius: 8px;
     color: white;
     margin-right: 30px;
+    max-width: 60%;
+    box-sizing: border-box;
 }
 
 .upload-container input[type="file"]::file-selector-button {
@@ -166,4 +178,134 @@ nav ul li a.active {
     color: white;
     text-align: left;
     white-space: pre-wrap;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --------- RESPONSIVE --------- */
+
+/* Para telas até 768px (tablets e celulares grandes) */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .description {
+        font-size: 14px;
+        max-width: 100%;
+        margin: 0 auto 15px;
+    }
+
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+        padding: 6px 12px;
+        min-width: 60px;
+    }
+
+    select {
+        font-size: 14px;
+        min-width: 120px;
+    }
+
+    button {
+        font-size: 16px;
+        min-width: 120px;
+        padding: 8px 16px;
+        margin-right: 0;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    #btn {
+        margin-right: 0;
+        margin-top: 10px;
+    }
+
+    .upload-container input[type="file"] {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .upload-container {
+        padding: 20px;
+        width: 90%;
+        max-width: 100%;
+    }
+
+    #text {
+        width: 95%;
+        height: 180px;
+        font-size: 14px;
+    }
+}
+
+/* Para telas até 480px (celulares pequenos) */
+@media (max-width: 480px) {
+    body {
+        padding-top: 60px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    label {
+        font-size: 14px;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    select {
+        width: 100%;
+        min-width: unset;
+    }
+
+    button {
+        width: 100%;
+        font-size: 15px;
+        padding: 10px;
+        min-width: unset;
+    }
+
+    nav ul {
+        flex-direction: row;      /* botões na horizontal */
+        gap: 10px;
+        overflow-x: auto;         /* permite rolar horizontal */
+        -webkit-overflow-scrolling: touch; /* suaviza no iOS */
+        white-space: nowrap;      /* evita quebra dos botões */
+    }
+
+    nav ul li a {
+        font-size: 14px;
+        padding: 10px 16px;       /* ajusta o padding para melhor toque */
+        min-width: auto;          /* deixa o botão tamanho natural */
+    }
+
+    .upload-container input[type="file"] {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    #text {
+        width: 100%;
+        height: 150px;
+        font-size: 14px;
+        padding: 15px;
+    }
 }
